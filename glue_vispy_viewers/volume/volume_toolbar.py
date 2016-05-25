@@ -18,12 +18,11 @@ class VolumeSelectionToolbar(VispyDataViewerToolbar):
     def on_mouse_press(self, event):
         self.selection_origin = event.pos
         if self.mode is 'point':
+            self._vispy_data_viewer.show_status('hey!')
             # TODO: add dendrogram selection here
             pass
 
     def on_mouse_release(self, event):
-
-        visible_data, visual = self.get_visible_data()
 
         # Get the visible datasets
         if event.button == 1 and self.mode is not None:

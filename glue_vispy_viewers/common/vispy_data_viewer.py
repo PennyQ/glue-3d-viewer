@@ -25,6 +25,8 @@ class BaseVispyViewer(DataViewer):
         toolbar = self._toolbar_cls(vispy_widget=self._vispy_widget, parent=self)
         self.addToolBar(toolbar)
 
+        self.status_label = None
+
     def register_to_hub(self, hub):
 
         super(BaseVispyViewer, self).register_to_hub(hub)
@@ -130,7 +132,8 @@ class BaseVispyViewer(DataViewer):
         return viewer
 
     def show_status(self, text):
-        statusbar = self.statusBar()
-        label = QtGui.QLabel()
-        statusbar.addWidget(label)
-        label.setText(text)
+        if not self.status_label:
+            statusbar = self.statusBar()
+            self.status_label = QtGui.QLabel()
+            statusbar.addWidget(self.status_label)
+        self.status_label.setText(text)
