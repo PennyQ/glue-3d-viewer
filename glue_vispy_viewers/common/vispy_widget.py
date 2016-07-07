@@ -17,6 +17,9 @@ rgb = ColorConverter().to_rgb
 
 
 class VispyWidget(QtGui.QWidget):
+    """
+    This class initiates the canvas and update displaying upon UI settings.
+    """
 
     visible_axes = CallbackProperty()
     perspective_view = CallbackProperty()

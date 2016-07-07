@@ -11,6 +11,11 @@ from .viewer_options import VispyOptionsWidget
 
 
 class BaseVispyViewer(DataViewer):
+    """
+    Base class for all 3D VispyViewers.
+
+    This initiates central displaying widget, hub for data/subset update.
+    """
 
     def __init__(self, session, parent=None):
 
